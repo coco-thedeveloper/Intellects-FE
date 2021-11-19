@@ -51,3 +51,97 @@ PASSWORD* :</p>
 </div>
 </body>
 </html>
+<script type="text/javascript">
+//getting input texts
+ var fname = document.forms["vform"]["fname"];
+ var lname = document.forms["vfrom"]["lname"];
+ var uid= document.forms["vfrom"]["uid"];
+ var phone= document.forms["vform"]["phone"];
+ var pass=document.forms["vform"]["pass"];
+
+//getting all error display objects
+var fname_error = document.getElementById("fname_error");
+var lastname_error = document.getElementById("lastname_error");
+var email_error = document.getElementById("email_error");
+var phonenumber_error = document.getElementById("phonenumber_error");
+var password_error = document.getElementById("password_error");
+
+//setting all event listeners
+fname.addEventListener("blur", fnameVerify, true);
+lname.addEventListener("blur", lnameVerify, true);
+uid.addEventListener("blur", uidVerify, true);
+phone.addEventListener("blur", phoneVerify, true);
+pass.addEventListener("blur", passVerify, true);
+
+//validation function
+ function Validate(){
+   if (fname.value == " ") {
+     fname.style.border = "1px solid red";
+     fname_error.textContent ="First name is required";
+     fname.focus();
+     return false;
+   }
+   if (lname.value == " ") {
+     lname.style.border = "1px solid red";
+     lname_error.textContent ="last name is required";
+     lname.focus();
+     return false;
+   }
+   if (uid.value == " ") {
+     uid.style.border = "1px solid red";
+    uid.textContent ="email is required";
+     uid.focus();
+     return false;
+   }
+   if (phone.value == " ") {
+  phone.style.border = "1px solid red";
+     phone.textContent ="phone number is required";
+     phone.focus();
+     return false;
+   }
+   if (pass.value == " ") {
+pass.style.border = "1px solid red";
+pass.textContent ="password is required";
+     pass.focus();
+     return false;
+   }
+ }
+ //event handler functions
+
+ function fnameVerify(){
+   if(fname.value != ""){
+     fname.style.border ="2px solid #fff";
+     fname_error.innerHTML="";
+     return true;
+   }
+ }
+
+
+ function lnameVerify(){
+   if(lname.value != ""){
+     lname.style.border ="2px solid #fff";
+     lname_error.innerHTML="";
+     return true;
+   }
+ }
+ function uidVerify(){
+   if(uid.value != ""){
+     uid.style.border ="2px solid #fff";
+     uid_error.innerHTML="";
+     return true;
+   }
+ }
+ function phoneVerify(){
+   if(phone.value != ""){
+  phone.style.border ="2px solid #fff";
+     phone.innerHTML="";
+     return true;
+   }
+ }
+ function passVerify(){
+   if(pass.value != ""){
+  pass.style.border ="2px solid #fff";
+     pass.innerHTML="";
+     return true;
+   }
+ }
