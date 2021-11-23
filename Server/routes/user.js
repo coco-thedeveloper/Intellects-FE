@@ -3,7 +3,7 @@ const router = express.Router();
 const User = require('../models/user');
 
 //get all user
-router.get('/', async (req, res)=>{
+router.get('/all', async (req, res)=>{
     try{
         const users = await User.find();
         res.json(users);
@@ -14,7 +14,7 @@ router.get('/', async (req, res)=>{
 });
 
 //submit a user
-router.post('/', async(req,res) => {
+router.post('/register', async(req,res) => {
     const user =new User({
         fname : req.body.fname,
         lname : req.body.lname,
@@ -32,7 +32,7 @@ router.post('/', async(req,res) => {
 });
 
 //specific user
-router.get('/:userId',async(req,res)=>{
+router.get('/particular/:userId',async(req,res)=>{
     try{
     const user = await Post.findById(req.params.userId);
     res.json(user);
@@ -42,7 +42,7 @@ router.get('/:userId',async(req,res)=>{
 });
 
 //Delete Post
-router.delete('/:userId',async(req,res)=>{
+router.delete('/delete/:userId',async(req,res)=>{
     try{
         const removedPost = await Post.remove({_id:req.params.userId});
         res.json(removedPost);
