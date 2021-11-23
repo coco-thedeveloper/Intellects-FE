@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STUDENT REGISTRATION FORM.</title>
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+    <div class="wrapper fl">
+
+        <div class="main">
+            <div class="head">
+<p>
+Student Registration Form</p>
+</div>
+<div class="form fl">
+                <form method="POST" action="index.js" onsubmit="return Validate()" name="vform">
+                    <p class="name">
+FIRST NAME* :</p>
+<p>
+<input type="text" name="fname" placeholder="First Name" class="name-inp"></p>
+<p class="name">
+LAST NAME* :</p>
+<p>
+<input type="text" name="lname" placeholder="Last Name" class="name-inp"></P>
+                    <p class="name">
+EMAIL* :</p>
+<p>
+<input type="email" name="uid" placeholder="Email" class="name-inp"></p>
+<p class="name">
+PHONE* :</P>
+                    <p>
+<input type="text" name="phone" placeholder="Phone" class="name-inp"></p>
+<p class="name">
+PASSWORD* :</p>
+<p>
+<input type="password" name="pass" placeholder="Password" class="pass">
+                        <input type="password" name="pass" placeholder="Confirm Password" class="pass">
+                    </p>
+<p class="gender">
+<span class="gen">Gender</span>
+                        <input type="checkbox" name="ge" class="genm">Male
+                        <input type="checkbox" name="ge" class="genm">Female
+                    </p>
+<p>
+<input type="submit" name="sb" value="SUBMIT" class="sub"></p>
+</form>
+</div>
+</div>
+</div>
+</body>
+</html>
+<script type="text/javascript">
+//getting input texts
+ var fname = document.forms["vform"]["fname"];
+ var lname = document.forms["vfrom"]["lname"];
+ var uid= document.forms["vfrom"]["uid"];
+ var phone= document.forms["vform"]["phone"];
+ var pass=document.forms["vform"]["pass"];
+
+//getting all error display objects
+var fname_error = document.getElementById("fname_error");
+var lastname_error = document.getElementById("lastname_error");
+var email_error = document.getElementById("email_error");
+var phonenumber_error = document.getElementById("phonenumber_error");
+var password_error = document.getElementById("password_error");
+
+//setting all event listeners
+fname.addEventListener("blur", fnameVerify, true);
+lname.addEventListener("blur", lnameVerify, true);
+uid.addEventListener("blur", uidVerify, true);
+phone.addEventListener("blur", phoneVerify, true);
+pass.addEventListener("blur", passVerify, true);
+
+//validation function
+ function Validate(){
+   if (fname.value == " ") {
+     fname.style.border = "1px solid red";
+     fname_error.textContent ="First name is required";
+     fname.focus();
+     return false;
+   }
+   if (lname.value == " ") {
+     lname.style.border = "1px solid red";
+     lname_error.textContent ="last name is required";
+     lname.focus();
+     return false;
+   }
+   if (uid.value == " ") {
+     uid.style.border = "1px solid red";
+    uid.textContent ="email is required";
+     uid.focus();
+     return false;
+   }
+   if (phone.value == " ") {
+  phone.style.border = "1px solid red";
+     phone.textContent ="phone number is required";
+     phone.focus();
+     return false;
+   }
+   if (pass.value == " ") {
+pass.style.border = "1px solid red";
+pass.textContent ="password is required";
+     pass.focus();
+     return false;
+   }
+ }
+ //event handler functions
+
+ function fnameVerify(){
+   if(fname.value != ""){
+     fname.style.border ="2px solid #fff";
+     fname_error.innerHTML="";
+     return true;
+   }
+ }
+
+
+ function lnameVerify(){
+   if(lname.value != ""){
+     lname.style.border ="2px solid #fff";
+     lname_error.innerHTML="";
+     return true;
+   }
+ }
+ function uidVerify(){
+   if(uid.value != ""){
+     uid.style.border ="2px solid #fff";
+     uid_error.innerHTML="";
+     return true;
+   }
+ }
+ function phoneVerify(){
+   if(phone.value != ""){
+  phone.style.border ="2px solid #fff";
+     phone.innerHTML="";
+     return true;
+   }
+ }
+ function passVerify(){
+   if(pass.value != ""){
+  pass.style.border ="2px solid #fff";
+     pass.innerHTML="";
+     return true;
+   }
+ }
+</script>
